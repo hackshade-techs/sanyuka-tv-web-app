@@ -1,17 +1,17 @@
 <div class="col-md-4">
     <div id="related-posts">
-      {{-- {{ dd($news->newsCategory) }} --}}
-      @foreach ($news->newsCategory->news as $relatedPost)
+      {{-- {{ dd($showDetail) }} --}}
+      @foreach ($showDetail->show->showDetails as $showDetail)
         <!-- video item -->
         <div class="related-video-item">
             <div class="thumb">
-                <small class="time">{{ $relatedPost->created_at->toTimeString() }}</small>
+                <small class="time">{{ $showDetail->created_at->toTimeString() }}</small>
                 <a href="#">
-                    <img src="{{ asset($relatedPost->image) }}" alt="">
+                    <img src="{{ asset($showDetail->image) }}" alt="">
                 </a>
             </div>
-            <a href="#" class="title">{{ substr($relatedPost->title,0,30) }} ...</a>
-            <a class="channel-name" href="#">{{ $relatedPost->newsCategory->name }}
+            <a href="#" class="title">{{ substr($showDetail->title,0,30) }} ...</a>
+            <a class="channel-name" href="#">{{ $showDetail->show->name }}
                 <span>
                     <i class="fa fa-check-circle"></i>
                 </span>

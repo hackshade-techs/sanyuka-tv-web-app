@@ -12,10 +12,11 @@
 */
 
 Route::resource('news', 'NewsController');
-Route::resource('stories', 'StoryController');
-Route::resource('shows', 'ShowController');
+Route::resource('storyDetail', 'StoryDetailController');
+Route::resource('showDetail', 'ShowDetailController');
 Route::resource('reports', 'ReportController');
 Route::resource('programs', 'ProgramController');
+Route::resource('feedback', 'FeedbackController', ['only' => 'store']);
 
 Route::get('/', 'PageController@welcome');
 
@@ -34,6 +35,7 @@ Route::group([
     CRUD::resource('story', 'StoryCrudController');
     CRUD::resource('showdetail', 'ShowDetailCrudController');
     CRUD::resource('show', 'ShowCrudController');
+    CRUD::resource('feedback', 'FeedbackCrudController');
 });
 
 /** CATCH-ALL ROUTE for Backpack/PageManager - needs to be at the end of your routes.php file  **/

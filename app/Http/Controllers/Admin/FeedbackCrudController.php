@@ -5,10 +5,10 @@ namespace App\Http\Controllers\Admin;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 // VALIDATION: change the requests to match your own file names if you need form validation
-use App\Http\Requests\StoryDetailRequest as StoreRequest;
-use App\Http\Requests\StoryDetailRequest as UpdateRequest;
+use App\Http\Requests\FeedbackRequest as StoreRequest;
+use App\Http\Requests\FeedbackRequest as UpdateRequest;
 
-class StoryDetailCrudController extends CrudController
+class FeedbackCrudController extends CrudController
 {
     public function setup()
     {
@@ -18,9 +18,9 @@ class StoryDetailCrudController extends CrudController
         | BASIC CRUD INFORMATION
         |--------------------------------------------------------------------------
         */
-        $this->crud->setModel('App\Models\StoryDetail');
-        $this->crud->setRoute(config('backpack.base.route_prefix') . '/storydetail');
-        $this->crud->setEntityNameStrings('storydetail', 'story_details');
+        $this->crud->setModel('App\Models\Feedback');
+        $this->crud->setRoute(config('backpack.base.route_prefix') . '/feedback');
+        $this->crud->setEntityNameStrings('feedback', 'feedback');
 
         /*
         |--------------------------------------------------------------------------
@@ -31,51 +31,13 @@ class StoryDetailCrudController extends CrudController
         $this->crud->setFromDb();
 
         // ------ CRUD FIELDS
-        $this->crud->addField([  // Select2
-           'label' => "Story",
-           'type' => 'select2',
-           'name' => 'story_id', // the db column for the foreign key
-           'entity' => 'story', // the method that defines the relationship in your Model
-           'attribute' => 'name', // foreign key attribute that is shown to user
-           'model' => "App\Models\Story" // foreign key model
-        ]);
-        $this->crud->addField([   // Browse
-            'name' => 'image',
-            'label' => 'Image',
-            'type' => 'browse'
-        ]);
-
-        $this->crud->addField([   // WYSIWYG Editor
-            'name' => 'description',
-            'label' => 'Description',
-            'type' => 'wysiwyg'
-        ]);
         // $this->crud->addField($options, 'update/create/both');
         // $this->crud->addFields($array_of_arrays, 'update/create/both');
         // $this->crud->removeField('name', 'update/create/both');
         // $this->crud->removeFields($array_of_names, 'update/create/both');
 
         // ------ CRUD COLUMNS
-        $this->crud->addColumn([
-           'name' => 'image', // The db column name
-           'label' => "Image", // Table column heading
-           'type' => 'image',
-            // 'prefix' => 'folder/subfolder/',
-            // optional width/height if 25px is not ok with you
-            // 'height' => '30px',
-            // 'width' => '30px',
-        ]);
-        
-        $this->crud->addColumn([
-           // 1-n relationship
-           'label' => "Story", // Table column heading
-           'type' => "select",
-           'name' => 'story_id', // the column that contains the ID of that connected entity;
-           'entity' => 'story', // the method that defines the relationship in your Model
-           'attribute' => "name", // foreign key attribute that is shown to user
-           'model' => "App\Models\Story", // foreign key model
-        ]);
-        $this->crud->removeColumn('description');
+        $this->crud->removeColumn('message');
         // $this->crud->addColumn(); // add a single column, at the end of the stack
         // $this->crud->addColumns(); // add multiple columns, at the end of the stack
         // $this->crud->removeColumn('column_name'); // remove a column from the stack
@@ -94,6 +56,7 @@ class StoryDetailCrudController extends CrudController
         // $this->crud->removeAllButtonsFromStack('line');
 
         // ------ CRUD ACCESS
+        $this->crud->denyAccess(['create','update']);
         // $this->crud->allowAccess(['list', 'create', 'update', 'reorder', 'delete']);
         // $this->crud->denyAccess(['list', 'create', 'update', 'reorder', 'delete']);
 

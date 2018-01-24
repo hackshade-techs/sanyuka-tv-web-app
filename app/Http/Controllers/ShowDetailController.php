@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\ShowDetail;
+use App\Models\ShowDetail;
 use Illuminate\Http\Request;
 
 class ShowDetailController extends Controller
@@ -46,7 +46,7 @@ class ShowDetailController extends Controller
      */
     public function show(ShowDetail $showDetail)
     {
-        //
+        return view('shows.show', compact('showDetail'));
     }
 
     /**

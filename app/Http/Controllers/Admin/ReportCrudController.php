@@ -31,12 +31,41 @@ class ReportCrudController extends CrudController
         $this->crud->setFromDb();
 
         // ------ CRUD FIELDS
+        $this->crud->addField([  // Select2
+           'label' => "News Category",
+           'type' => 'select2',
+           'name' => 'news_category_id', // the db column for the foreign key
+           'entity' => 'newsCategory', // the method that defines the relationship in your Model
+           'attribute' => 'name', // foreign key attribute that is shown to user
+           'model' => "App\Models\NewsCategory" // foreign key model
+        ]);
+
+        $this->crud->addField([   // Browse
+            'name' => 'file',
+            'label' => 'File',
+            'type' => 'browse'
+        ]);
+        $this->crud->addField([   // WYSIWYG Editor
+            'name' => 'description',
+            'label' => 'Description',
+            'type' => 'wysiwyg'
+        ]);
         // $this->crud->addField($options, 'update/create/both');
         // $this->crud->addFields($array_of_arrays, 'update/create/both');
         // $this->crud->removeField('name', 'update/create/both');
         // $this->crud->removeFields($array_of_names, 'update/create/both');
 
         // ------ CRUD COLUMNS
+        $this->crud->addColumn([
+           // 1-n relationship
+           'label' => "News Category", // Table column heading
+           'type' => "select",
+           'name' => 'news_category_id', // the column that contains the ID of that connected entity;
+           'entity' => 'newsCategory', // the method that defines the relationship in your Model
+           'attribute' => "name", // foreign key attribute that is shown to user
+           'model' => "App\Models\NewsCategory", // foreign key model
+        ]);
+        $this->crud->removeColumn('description');
         // $this->crud->addColumn(); // add a single column, at the end of the stack
         // $this->crud->addColumns(); // add multiple columns, at the end of the stack
         // $this->crud->removeColumn('column_name'); // remove a column from the stack

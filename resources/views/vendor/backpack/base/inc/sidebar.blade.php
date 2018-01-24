@@ -57,6 +57,7 @@
           <li><a href="{{ backpack_url('report') }}"><i class="fa fa-file-audio-o"></i> <span>News Reports</span></a></li>
 
           <li><a href="{{ backpack_url('page') }}"><i class="fa fa-file-o"></i> <span>Pages</span></a></li>
+          <li><a href="{{ backpack_url('feedback') }}"><i class="fa fa-comments-o"></i> <span>Feedback</span></a></li>
 
           <!-- Users, Roles Permissions -->
           <li class="treeview">

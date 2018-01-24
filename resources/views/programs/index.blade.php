@@ -1,24 +1,18 @@
-@foreach ($news->chunk(3) as $chunk)
-  <h1 class="new-video-title"><i class="fa fa-bolt"></i> Trending</h1>
-  <div class="row">
-        @foreach ($chunk as $post)
-          <!-- video-item -->
-          <div class="col-lg-4 col-md-4 col-sm-6">
-              <div class="video-item">
-                  <div class="thumb">
-                      <div class="hover-efect"></div>
-                      <small class="time">{{ $post->created_at->toTimeString() }}</small>
-                      <a href="{{ route('news.show', $post->slug) }}"><img src="{{ asset($post->image) }}" alt=""></a>
-                  </div>
-                  <div class="video-info">
-                      <a href="{{ route('news.show', $post->slug) }}" class="title" style="text-transform:capitalize;">{{ $post->title }}</a>
-                      <a class="channel-name" href="#">{{ $post->newsCategory->name }}<span>
-                      <i class="fa fa-check-circle"></i></span></a>
-                      <span class="date"><i class="fa fa-clock-o"></i>{{ $post->created_at->diffForHumans() }}</span>
-                  </div>
+@foreach ($programs as $program)
+
+  <!-- Chanels Item -->
+      <div class="col-md-6">
+          <div class="chanel-item">
+              <div class="chanel-thumb">
+                  <a href="{{ route('programs.show', $program->slug) }}"><img src="{{ asset($program->image) }}" alt=""></a>
               </div>
+              <div class="chanel-info">
+                  <a class="title" href="{{ route('programs.show', $program->slug) }}">{{ $program->title }}</a>
+                  <span class="subscribers">Start: {{ $program->start }}</span>
+                  <span class="subscribers">End: {{ $program->end }}</span>
+              </div>
+              <a href="#" class="subscribe">{{ $program->day->name }}</a>
           </div>
-          <!-- // video-item -->
-        @endforeach
-    </div>
+       </div>
+
 @endforeach

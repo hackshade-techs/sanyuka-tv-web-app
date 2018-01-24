@@ -30,6 +30,10 @@ class Report extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
+    public static function reports()
+    {
+      return Report::all();
+    }
 
     /*
     |--------------------------------------------------------------------------
@@ -42,6 +46,11 @@ class Report extends Model
     | SCOPES
     |--------------------------------------------------------------------------
     */
+
+    public function newsCategory()
+    {
+      return $this->belongsTo('App\Models\NewsCategory');
+    }
 
     /*
     |--------------------------------------------------------------------------

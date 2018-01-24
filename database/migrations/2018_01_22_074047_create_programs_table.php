@@ -18,6 +18,8 @@ class CreateProgramsTable extends Migration
             $table->unsignedInteger('day_id')->index();
             $table->string('title');
             $table->string('slug')->unique();
+            $table->time('start');
+            $table->time('end');
             $table->string('image')->nullable();
             $table->text('description')->nullable();
             $table->timestamps();

@@ -4,12 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
-use Cviebrock\EloquentSluggable\Sluggable;
 
-class StoryDetail extends Model
+class Feedback extends Model
 {
     use CrudTrait;
-    use Sluggable;
 
      /*
     |--------------------------------------------------------------------------
@@ -17,7 +15,7 @@ class StoryDetail extends Model
     |--------------------------------------------------------------------------
     */
 
-    //protected $table = 'story_details';
+    //protected $table = 'feedbacks';
     //protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
@@ -30,21 +28,12 @@ class StoryDetail extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
-    public static function storyDetails()
-    {
-      return StoryDetail::all();
-    }
 
     /*
     |--------------------------------------------------------------------------
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-
-    public function story()
-    {
-      return $this->belongsTo('App\Models\Story');
-    }
 
     /*
     |--------------------------------------------------------------------------
@@ -63,18 +52,4 @@ class StoryDetail extends Model
     | MUTATORS
     |--------------------------------------------------------------------------
     */
-
-    public function sluggable()
-    {
-        return [
-            'slug' => [
-                'source' => 'title'
-            ]
-        ];
-    }
-
-    public function getRouteKeyName()
-    {
-        return 'slug';
-    }
 }

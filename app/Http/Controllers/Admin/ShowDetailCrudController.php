@@ -64,6 +64,16 @@ class ShowDetailCrudController extends CrudController
            'attribute' => "name", // foreign key attribute that is shown to user
            'model' => "App\Models\Show", // foreign key model
         ]);
+        $this->crud->addColumn([
+           'name' => 'image', // The db column name
+           'label' => "Image", // Table column heading
+           'type' => 'image',
+            // 'prefix' => 'folder/subfolder/',
+            // optional width/height if 25px is not ok with you
+            // 'height' => '30px',
+            // 'width' => '30px',
+        ]);
+        $this->crud->removeColumn('description');
         // $this->crud->addColumn(); // add a single column, at the end of the stack
         // $this->crud->addColumns(); // add multiple columns, at the end of the stack
         // $this->crud->removeColumn('column_name'); // remove a column from the stack

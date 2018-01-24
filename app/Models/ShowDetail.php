@@ -31,6 +31,11 @@ class ShowDetail extends Model
     |--------------------------------------------------------------------------
     */
 
+    public static function showDetails()
+    {
+      return ShowDetail::all();
+    }
+
     /*
     |--------------------------------------------------------------------------
     | RELATIONS

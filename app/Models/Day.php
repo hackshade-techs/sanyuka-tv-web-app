@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
+use Cviebrock\EloquentSluggable\Sluggable;
 
 class Day extends Model
 {
     use CrudTrait;
+    use Sluggable;
 
      /*
     |--------------------------------------------------------------------------
@@ -28,6 +30,10 @@ class Day extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
+    public static function days()
+    {
+      return Day::all();
+    }
 
     /*
     |--------------------------------------------------------------------------
@@ -57,4 +63,18 @@ class Day extends Model
     | MUTATORS
     |--------------------------------------------------------------------------
     */
+
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'name'
+            ]
+        ];
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }

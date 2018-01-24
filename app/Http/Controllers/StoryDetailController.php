@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\StoryDetail;
+use App\Models\StoryDetail;
 use Illuminate\Http\Request;
 
 class StoryDetailController extends Controller
@@ -46,7 +46,7 @@ class StoryDetailController extends Controller
      */
     public function show(StoryDetail $storyDetail)
     {
-        //
+        return view('stories.show', compact('storyDetail'));
     }
 
     /**

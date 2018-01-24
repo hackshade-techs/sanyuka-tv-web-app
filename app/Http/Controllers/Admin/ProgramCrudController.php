@@ -50,6 +50,19 @@ class ProgramCrudController extends CrudController
             'label' => 'Description',
             'type' => 'wysiwyg'
         ]);
+
+        $this->crud->addField([   // Time
+            'name' => 'start',
+            'label' => 'Start time',
+            'type' => 'time'
+        ]);
+
+        $this->crud->addField([   // Time
+            'name' => 'end',
+            'label' => 'End time',
+            'type' => 'time'
+        ]);
+
         // $this->crud->addField($options, 'update/create/both');
         // $this->crud->addFields($array_of_arrays, 'update/create/both');
         // $this->crud->removeField('name', 'update/create/both');
@@ -64,6 +77,16 @@ class ProgramCrudController extends CrudController
            'entity' => 'day', // the method that defines the relationship in your Model
            'attribute' => "name", // foreign key attribute that is shown to user
            'model' => "App\Models\Day", // foreign key model
+        ]);
+        $this->crud->removeColumn('description');
+        $this->crud->addColumn([
+           'name' => 'image', // The db column name
+           'label' => "Image", // Table column heading
+           'type' => 'image',
+            // 'prefix' => 'folder/subfolder/',
+            // optional width/height if 25px is not ok with you
+            // 'height' => '30px',
+            // 'width' => '30px',
         ]);
         // $this->crud->addColumn(); // add a single column, at the end of the stack
         // $this->crud->addColumns(); // add multiple columns, at the end of the stack

@@ -1,7 +1,7 @@
 <div class="col-md-2">
     <ul class="category-menu">
-      @foreach ($newsCategories as $newsCategory)
-        <li class=""><a href="#">{{ $newsCategory->name }}</a></li>
+      @foreach ($stories as $story)
+        <li class=""><a href="#">{{ $story->name }}</a></li>
       @endforeach
     </ul>
 

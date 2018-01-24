@@ -8,9 +8,9 @@ use App\Models\Program;
 use App\Models\Story;
 use App\Models\Day;
 use App\Models\Report;
-use App\Models\ShowCategory;
+use App\Models\ShowDetail;
 use App\Models\NewsCategory;
-use App\Models\StoryCategory;
+use App\Models\StoryDetail;
 use Illuminate\Support\ServiceProvider;
 
 class ComposerServiceProvider extends ServiceProvider
@@ -27,29 +27,29 @@ class ComposerServiceProvider extends ServiceProvider
           $view->with('news', News::news());
         });
 
-        view()->composer('news.categories', function($view)
+        view()->composer(['news.categories', 'reports.categories'], function($view)
         {
           $view->with('newsCategories', NewsCategory::newsCategories());
         });
 
-        view()->composer('shows.index', function($view)
+        view()->composer('shows.categories', function($view)
         {
           $view->with('shows', Show::shows());
         });
 
-        view()->composer('shows.categories', function($view)
+        view()->composer('shows.index', function($view)
         {
-          $view->with('showCategories', ShowCategory::showCategories());
-        });
-
-        view()->composer('stories.index', function($view)
-        {
-          $view->with('stories', Story::stories());
+          $view->with('showDetails', ShowDetail::showDetails());
         });
 
         view()->composer('stories.categories', function($view)
         {
-          $view->with('storyCategories', StoryCategory::storyCategories());
+          $view->with('stories', Story::stories());
+        });
+
+        view()->composer('stories.index', function($view)
+        {
+          $view->with('storyDetails', StoryDetail::storyDetails());
         });
 
         view()->composer('programs.index', function($view)
@@ -59,7 +59,7 @@ class ComposerServiceProvider extends ServiceProvider
 
         view()->composer('programs.categories', function($view)
         {
-          $view->with('days', Program::days());
+          $view->with('days', Day::days());
         });
 
         view()->composer('reports.index', function($view)
