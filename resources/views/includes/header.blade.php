@@ -15,7 +15,7 @@
           <div class="col-lg-3 col-md-3 col-sm-6 hidden-xs hidden-sm">
               <div class="search-form" id="app">
 
-                  <template>
+                  {{-- <template>
                     <ais-index
                       app-id="{{ config('scout.algolia.id') }}"
                       api-key="{{ env('ALGOLIA_SEARCH') }}"
@@ -23,17 +23,15 @@
                     >
                       <ais-search-box  placeholder="Search here videos..."></ais-search-box>
                       <ais-stats></ais-stats>
-                      <ais-results>
+                      <ais-results class="row">
                         <template slot-scope="{ result }">
                           <h2>
-                            <a :href="'news/'+result.slug">
-                              <ais-highlight :result="result" attribute-name="title"></ais-highlight>
-                            </a>
+                            @{{ result.title }}
                           </h2>
                         </template>
                       </ais-results>
                     </ais-index>
-                  </template>
+                  </template> --}}
 
                   {{-- <form id="search" action="#" method="post">
                       <input type="text" placeholder="Search here video posts..."/>

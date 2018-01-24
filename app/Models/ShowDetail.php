@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
+use Cviebrock\EloquentSluggable\Sluggable;
 
 class ShowDetail extends Model
 {
     use CrudTrait;
+    use Sluggable;
 
      /*
     |--------------------------------------------------------------------------
@@ -57,4 +59,18 @@ class ShowDetail extends Model
     | MUTATORS
     |--------------------------------------------------------------------------
     */
+
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'title'
+            ]
+        ];
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }

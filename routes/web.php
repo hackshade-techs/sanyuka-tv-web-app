@@ -12,6 +12,10 @@
 */
 
 Route::resource('news', 'NewsController');
+Route::resource('stories', 'StoryController');
+Route::resource('shows', 'ShowController');
+Route::resource('reports', 'ReportController');
+Route::resource('programs', 'ProgramController');
 
 Route::get('/', 'PageController@welcome');
 

@@ -50,28 +50,5 @@
   <script src="{{ asset('js/imagesloaded.pkgd.min.js') }}"></script>
   <script src="{{ asset('js/grid-blog.min.js') }}"></script>
 
-  <script type="text/javascript">
-  <ais-index app-id="{{ config('scout.algolia.id') }}"
-         api-key="{{ env('ALGOLIA_SEARCH') }}"
-         index-name="news">
-
-    <ais-input placeholder="Search contacts..."><ais-input>
-
-    <ais-results>
-       <template scope="{ result }">
-         <div>
-           <h1>@{{ result.title }}</h1>
-           <ul>
-             <li>@{{ result.description }}</li>
-           </ul>
-         </div>
-       </template>
-    </ais-results>
-
-    </ais-index>
-  </script>
-
-
-
 	</body>
 </html>
