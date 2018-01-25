@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Report;
+use App\Models\Report;
+use App\Http\Resources\ReportCollection;
 use Illuminate\Http\Request;
 
 class ReportController extends Controller
@@ -14,7 +15,7 @@ class ReportController extends Controller
      */
     public function index()
     {
-        //
+        return new ReportCollection::(Report::all());
     }
 
     /**

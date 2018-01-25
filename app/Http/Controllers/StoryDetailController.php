@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\StoryDetail;
+use App\Http\Resources\StoryDetailCollection;
 use Illuminate\Http\Request;
 
 class StoryDetailController extends Controller
@@ -14,7 +15,7 @@ class StoryDetailController extends Controller
      */
     public function index()
     {
-        //
+        return new StoryDetailCollection::(StoryDetail::all());
     }
 
     /**

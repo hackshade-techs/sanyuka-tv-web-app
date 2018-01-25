@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Day;
+use App\Models\Day;
+use App\Http\Resources\DayCollection;
 use Illuminate\Http\Request;
 
 class DayController extends Controller
@@ -14,7 +15,7 @@ class DayController extends Controller
      */
     public function index()
     {
-        //
+        return new DayCollection::(Day::all());
     }
 
     /**

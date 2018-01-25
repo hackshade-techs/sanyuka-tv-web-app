@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Program;
+use App\Http\Resources\ProgramCollection;
 use Illuminate\Http\Request;
 
 class ProgramController extends Controller
@@ -14,7 +15,7 @@ class ProgramController extends Controller
      */
     public function index()
     {
-        //
+        return new ProgramCollection::(Program::all());
     }
 
     /**

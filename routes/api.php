@@ -16,3 +16,10 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::resource('news', 'NewsController');
+Route::resource('storyDetail', 'StoryDetailController');
+Route::resource('showDetail', 'ShowDetailController');
+Route::resource('reports', 'ReportController');
+Route::resource('programs', 'ProgramController');
+Route::resource('feedback', 'FeedbackController', ['only' => 'store']);

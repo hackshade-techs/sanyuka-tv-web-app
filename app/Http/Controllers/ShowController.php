@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Show;
+use App\Models\Show;
+use App\Http\Resources\ShowCollection;
 use Illuminate\Http\Request;
 
 class ShowController extends Controller
@@ -14,7 +15,7 @@ class ShowController extends Controller
      */
     public function index()
     {
-        //
+        return new ShowCollection::(Show::all());
     }
 
     /**

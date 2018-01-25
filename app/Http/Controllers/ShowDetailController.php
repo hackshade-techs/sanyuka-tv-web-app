@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ShowDetail;
+use App\Http\Resources\ShowDetailCollection;
 use Illuminate\Http\Request;
 
 class ShowDetailController extends Controller
@@ -14,7 +15,7 @@ class ShowDetailController extends Controller
      */
     public function index()
     {
-        //
+        return new ShowDetailCollection::(ShowDetail::all());
     }
 
     /**

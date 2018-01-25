@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Story;
+use App\Models\Story;
+use App\Http\Resources\StoryCollection;
 use Illuminate\Http\Request;
 
 class StoryController extends Controller
@@ -14,7 +15,7 @@ class StoryController extends Controller
      */
     public function index()
     {
-        //
+        return new StoryCollection::(Story::all());
     }
 
     /**

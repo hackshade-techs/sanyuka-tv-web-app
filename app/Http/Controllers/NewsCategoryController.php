@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\NewsCategory;
+use App\Models\NewsCategoryCollection;
+use App\Http\Resources\NewsCollection;
 use Illuminate\Http\Request;
 
 class NewsCategoryController extends Controller
@@ -14,7 +15,7 @@ class NewsCategoryController extends Controller
      */
     public function index()
     {
-        //
+        return new NewsCategoryCollection::(NewsCategory::all());
     }
 
     /**
