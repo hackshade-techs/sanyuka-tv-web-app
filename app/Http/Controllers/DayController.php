@@ -15,7 +15,7 @@ class DayController extends Controller
      */
     public function index()
     {
-        return new DayCollection::(Day::all());
+        return new DayCollection(Day::all());
     }
 
     /**
@@ -45,9 +45,12 @@ class DayController extends Controller
      * @param  \App\Day  $day
      * @return \Illuminate\Http\Response
      */
-    public function show(Day $day)
+    public function show($day)
     {
-        //
+      if($day){
+        $days = Day::where('slug', $day)->first();
+      }
+      return view('programs.category.index', compact('days'));
     }
 
     /**

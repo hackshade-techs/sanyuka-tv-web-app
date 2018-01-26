@@ -10,7 +10,7 @@
             <!-- Video Player -->
             <h1 class="video-title">Sanyuka Live Television</h1>
             <div class="video-code">
-                <iframe width="100%" height="415" src="" frameborder="0" allowfullscreen></iframe>
+              <div id='mediaspace'>This text will be replaced</div>
             </div><!-- // video-code -->
 
             <div class="video-share">

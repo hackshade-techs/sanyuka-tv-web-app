@@ -15,7 +15,7 @@ class ShowController extends Controller
      */
     public function index()
     {
-        return new ShowCollection::(Show::all());
+        return new ShowCollection(Show::all());
     }
 
     /**
@@ -45,9 +45,12 @@ class ShowController extends Controller
      * @param  \App\Show  $show
      * @return \Illuminate\Http\Response
      */
-    public function show(Show $show)
+    public function show($show = null)
     {
-        //
+      if($show){
+        $shows = Show::where('slug', $show)->first();
+      }
+      return view('shows.category.index', compact('shows'));
     }
 
     /**

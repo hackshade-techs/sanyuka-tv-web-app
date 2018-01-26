@@ -15,7 +15,7 @@ class ProgramController extends Controller
      */
     public function index()
     {
-        return new ProgramCollection::(Program::all());
+        return new ProgramCollection(Program::all());
     }
 
     /**

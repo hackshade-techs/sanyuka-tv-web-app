@@ -15,7 +15,7 @@ class ShowDetailController extends Controller
      */
     public function index()
     {
-        return new ShowDetailCollection::(ShowDetail::all());
+        return new ShowDetailCollection(ShowDetail::all());
     }
 
     /**

@@ -1,4 +1,5 @@
-@foreach ($news->chunk(3) as $chunk)
+@foreach ($newsCat->news->chunk(3) as $chunk)
+  <h1 class="new-video-title"><i class="fa fa-bolt"></i> Trending</h1>
   <div class="row">
         @foreach ($chunk as $post)
           <!-- video-item -->

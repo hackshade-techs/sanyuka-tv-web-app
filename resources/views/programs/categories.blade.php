@@ -1,7 +1,7 @@
 <div class="col-md-2">
     <ul class="category-menu">
       @foreach ($days as $day)
-        <li class=""><a href="#">{{ $day->name }}</a></li>
+        <li class=""><a href="{{ url("tv-programs/$day->slug") }}">{{ $day->name }}</a></li>
       @endforeach
     </ul>
 

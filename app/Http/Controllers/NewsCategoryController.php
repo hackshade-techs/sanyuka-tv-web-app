@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\NewsCategoryCollection;
 use App\Http\Resources\NewsCollection;
+use App\Models\NewsCategory;
 use Illuminate\Http\Request;
 
 class NewsCategoryController extends Controller
@@ -15,7 +16,7 @@ class NewsCategoryController extends Controller
      */
     public function index()
     {
-        return new NewsCategoryCollection::(NewsCategory::all());
+        return new NewsCategoryCollection(NewsCategory::all());
     }
 
     /**
@@ -45,9 +46,20 @@ class NewsCategoryController extends Controller
      * @param  \App\NewsCategory  $newsCategory
      * @return \Illuminate\Http\Response
      */
-    public function show(NewsCategory $newsCategory)
+    public function show($newsCategory = null)
     {
-        //
+        if($newsCategory){
+          $newsCat = NewsCategory::where('slug', $newsCategory)->first();
+        }
+        return view('news.category.index', compact('newsCat'));
+    }
+
+    public function showReports($newsCategory = null)
+    {
+      if($newsCategory){
+        $newsCat = NewsCategory::where('slug', $newsCategory)->first();
+      }
+      return view('reports.category.index', compact('newsCat'));
     }
 
     /**

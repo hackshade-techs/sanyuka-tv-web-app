@@ -15,7 +15,7 @@ class ReportController extends Controller
      */
     public function index()
     {
-        return new ReportCollection::(Report::all());
+        return new ReportCollection(Report::all());
     }
 
     /**
@@ -47,7 +47,7 @@ class ReportController extends Controller
      */
     public function show(Report $report)
     {
-        //
+        return view('reports.show', compact('report'));
     }
 
     /**

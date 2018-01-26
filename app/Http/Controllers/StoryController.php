@@ -15,7 +15,7 @@ class StoryController extends Controller
      */
     public function index()
     {
-        return new StoryCollection::(Story::all());
+        return new StoryCollection(Story::all());
     }
 
     /**
@@ -45,9 +45,12 @@ class StoryController extends Controller
      * @param  \App\Story  $story
      * @return \Illuminate\Http\Response
      */
-    public function show(Story $story)
+    public function show($story)
     {
-        //
+      if($story){
+        $storys = Story::where('slug', $story)->first();
+      }
+      return view('stories.category.index', compact('storys'));
     }
 
     /**

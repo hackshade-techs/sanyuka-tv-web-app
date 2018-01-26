@@ -1,7 +1,7 @@
 <div class="col-md-4">
     <div id="related-posts">
-      {{-- {{ dd($news->newsCategory) }} --}}
-      @foreach ($news->newsCategory->news as $relatedPost)
+      {{-- {{ dd($report->newsCategory) }} --}}
+      @foreach ($report->newsCategory->reports as $relatedPost)
         <!-- video item -->
         <div class="related-video-item">
             <div class="thumb">

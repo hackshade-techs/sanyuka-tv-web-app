@@ -15,7 +15,7 @@ class StoryDetailController extends Controller
      */
     public function index()
     {
-        return new StoryDetailCollection::(StoryDetail::all());
+        return new StoryDetailCollection(StoryDetail::all());
     }
 
     /**

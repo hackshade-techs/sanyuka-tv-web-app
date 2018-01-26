@@ -1,4 +1,5 @@
-@foreach ($news->chunk(3) as $chunk)
+@foreach ($newsCat->reports->chunk(3) as $chunk)
+  <h1 class="new-video-title"><i class="fa fa-bolt"></i> Trending</h1>
   <div class="row">
         @foreach ($chunk as $post)
           <!-- video-item -->
@@ -7,7 +8,7 @@
                   <div class="thumb">
                       <div class="hover-efect"></div>
                       <small class="time">{{ $post->created_at->toTimeString() }}</small>
-                      <a href="{{ route('news.show', $post->slug) }}"><img src="{{ asset($post->image) }}" alt=""></a>
+                      <a href="{{ route('news.show', $post->slug) }}"><img src="{{ asset($post->file) }}" alt=""></a>
                   </div>
                   <div class="video-info">
                       <a href="{{ route('news.show', $post->slug) }}" class="title" style="text-transform:capitalize;">{{ $post->title }}</a>

@@ -1,4 +1,6 @@
-@foreach ($showDetails->chunk(3) as $chunk)
+{{-- {{ dd($shows->showDetails) }} --}}
+@foreach ($shows->showDetails->chunk(3) as $chunk)
+  <h1 class="new-video-title"><i class="fa fa-bolt"></i> Trending</h1>
   <div class="row">
         @foreach ($chunk as $showDetail)
           <!-- video-item -->

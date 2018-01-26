@@ -9,12 +9,15 @@
                 <i class="fa fa-close"></i>
               </a>
               <div id="logo">
-                  <a href="{{ url('/') }}"><img src="img/logo.png" alt=""></a>
+                  <a href="{{ url('/') }}"><img src="{{ asset('img/logo.png') }}" alt=""></a>
               </div>
           </div><!-- // col-md-2 -->
           <div class="col-lg-3 col-md-3 col-sm-6 hidden-xs hidden-sm">
               <div class="search-form" id="app">
-
+                <form id="search" action="#" method="post">
+                    <input type="text" placeholder="Search here video posts..."/>
+                    <input type="submit" value="Keywords" />
+                </form>
                   {{-- <template>
                     <ais-index
                       app-id="{{ config('scout.algolia.id') }}"

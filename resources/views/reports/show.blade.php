@@ -8,9 +8,9 @@
           <div id="watch">
 
               <!-- Video Player -->
-              <h1 class="video-title" style="text-transform:capitalize;">{{ $news->title }}</h1>
+              <h1 class="video-title" style="text-transform:capitalize;">{{ $report->title }}</h1>
               <div class="video-code">
-                  <iframe width="100%" height="415" src="{{ asset($news->video_url) }}" frameborder="0" allowfullscreen></iframe>
+                  <iframe width="100%" height="415" src="{{ asset($report->video_url) }}" frameborder="0" allowfullscreen></iframe>
               </div>
               <!-- // video-code -->
 
@@ -64,7 +64,7 @@
               <!-- // video-share -->
               <!-- // Video Player -->
 
-              <p> {!! $news->description !!} </p>
+              <p> {!! $report->description !!} </p>
               <!-- Chanels Item -->
               <div class="chanel-item">
 
@@ -82,8 +82,8 @@
                 *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
 
                 var disqus_config = function () {
-                this.page.url = {{ $news->slug }};  // Replace PAGE_URL with your page's canonical URL variable
-                this.page.identifier = {{ $news->id }}; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                this.page.url = {{ $report->slug }};  // Replace PAGE_URL with your page's canonical URL variable
+                this.page.identifier = {{ $report->id }}; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
                 };
 
                 (function() { // DON'T EDIT BELOW THIS LINE
@@ -105,7 +105,7 @@
       <!-- // Watch -->
 
       <!-- Related Posts-->
-      @include('news.sidebar')
+      @include('reports.sidebar')
       <!-- // col-md-4 -->
       <!-- // Related Posts -->
   </div>

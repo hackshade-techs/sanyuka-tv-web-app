@@ -6,11 +6,11 @@
         <div class="related-video-item">
             <div class="thumb">
                 <small class="time">{{ $relatedPost->created_at->toTimeString() }}</small>
-                <a href="#">
+                <a href="{{ route('news.show', $relatedPost->slug) }}">
                     <img src="{{ asset($relatedPost->image) }}" alt="">
                 </a>
             </div>
-            <a href="#" class="title">{{ substr($relatedPost->title,0,30) }} ...</a>
+            <a href="{{ route('news.show', $relatedPost->slug) }}" class="title">{{ substr($relatedPost->title,0,30) }} ...</a>
             <a class="channel-name" href="#">{{ $relatedPost->newsCategory->name }}
                 <span>
                     <i class="fa fa-check-circle"></i>

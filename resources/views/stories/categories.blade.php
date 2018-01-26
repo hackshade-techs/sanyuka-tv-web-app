@@ -1,7 +1,7 @@
 <div class="col-md-2">
     <ul class="category-menu">
       @foreach ($stories as $story)
-        <li class=""><a href="#">{{ $story->name }}</a></li>
+        <li class=""><a href="{{ url("stories/$story->slug") }}">{{ $story->name }}</a></li>
       @endforeach
     </ul>
 

@@ -3,9 +3,16 @@
     	<div id="sidebar-stick" >
     	<ul class="menu-sidebar">
       	<li><a href="{{ url('/') }}"><i class="fa fa-home"></i>Home</a></li>
-      	<li><a href="#"><i class="fa fa-bolt"></i>Trending</a></li>
-      	<li><a href="14-history.html"><i class="fa fa-clock-o"></i>History</a></li>
+      	<li><a href="{{ url('news-videos') }}"><i class="fa fa-globe"></i>News</a></li>
+      	<li><a href="{{ url('shows-videos') }}"><i class="fa fa-play-circle-o"></i>Showz</a></li>
+				<li><a href="{{ url('tv-programs') }}"><i class="fa fa-television"></i>Programz</a></li>
+				<li><a href="{{ url('stories-videos') }}"><i class="fa fa-repeat"></i>Storiez</a></li>
+				<li><a href="{{ url('peoples-reports') }}"><i class="fa fa-group"></i>Peoples Reports</a></li>
       </ul>
+
+			<ul class="menu-sidebar">
+					<li><a href="#"><i class="fa fa-bolt"></i>Trending</a></li>
+			</ul>
 
     	<ul class="menu-sidebar">
       	<li><a href="{{ url('contact-us') }}"><i class="fa fa-send-o"></i>Send feedback</a></li>

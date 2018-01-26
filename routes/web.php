@@ -10,15 +10,18 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('news-categories/{newsCategory}', 'NewsCategoryController@show');
+Route::get('peoples-reports/news-categories/{newsCategory}', 'NewsCategoryController@showReports');
+Route::get('shows/{show}', 'ShowController@show');
+Route::get('stories/{story}', 'StoryController@show');
+Route::get('tv-programs/{day}', 'DayController@show');
 Route::resource('news', 'NewsController');
 Route::resource('storyDetail', 'StoryDetailController');
 Route::resource('showDetail', 'ShowDetailController');
 Route::resource('reports', 'ReportController');
 Route::resource('programs', 'ProgramController');
 Route::resource('feedback', 'FeedbackController', ['only' => 'store']);
-
-Route::get('/', 'PageController@welcome');
+Route::get('/', 'PageController@welcome')->name('home');
 
 Route::group([
     'prefix'     => config('backpack.base.route_prefix', 'admin'),
